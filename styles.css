@@ -23,10 +23,13 @@ body {
 
 /* ── NAV ── */
 #navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: var(--bg);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,7 +102,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  min-height: 80vh;
+  min-height: 100vh;
+  margin-top: -68px;
   padding: 0 24px 64px;
   border-bottom: 1px solid var(--border);
   background-image: url('images/AGM%202026%20Texture.png');

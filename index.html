@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>645 Ventures — 2026 Annual Meeting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <span class="logo-645">645</span>
+      <span class="logo-ventures">Ventures</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="REGISTRATION_URL" class="nav-register">Register</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Open menu">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <a href="REGISTRATION_URL" class="btn-register">Register Now</a>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <p class="section-label">Annual Meeting 2026</p>
+    <h1 class="overview-title">2026 Annual<br /><span>Meeting.</span></h1>
+    <p class="overview-theme">The Age of Co-Intelligence: Building Companies on the New Infrastructure</p>
+    <p class="overview-desc">
+      AI has moved from experiment to infrastructure, and a new generation of founders is building on top of it. They are shipping, scaling, and competing differently than ever before. Join us to explore how co-intelligence is redefining the future of company building.
+    </p>
+    <div class="overview-meta">
+      <p><strong>Date</strong> &nbsp;TBD</p>
+      <p><strong>Time</strong> &nbsp;TBD</p>
+      <p><strong>Venue</strong> &nbsp;TBD</p>
+      <p><strong>Address</strong> &nbsp;TBD</p>
+    </div>
+  </section>
+
+  <!-- FEATURED SPEAKERS -->
+  <section id="speakers">
+    <p class="section-label">Speakers</p>
+    <div class="speakers-grid" id="featured-speakers-grid"></div>
+
+    <!-- PREVIOUS NOTABLE SPEAKERS -->
+    <div class="previous-speakers-wrapper">
+      <p class="section-label">From Previous Years</p>
+      <h2 class="previous-title">Previous Notable Speakers</h2>
+      <div class="previous-speakers-scroll" id="previous-speakers-scroll"></div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <div class="location-inner">
+      <div class="location-text">
+        <p class="section-label">Venue</p>
+        <h2 class="location-title">Location &amp;<br />Venue</h2>
+        <p>Venue details will be announced soon.</p>
+        <p><strong>Venue Name</strong><br />Address Line 1<br />New York, NY</p>
+        <p><strong>Instructions for Entry</strong><br />Entry instructions will be provided closer to the event date.</p>
+      </div>
+      <div class="location-image" id="location-image-wrap">
+        <img src="images/venue.jpg" alt="Venue" onerror="this.style.display='none';document.getElementById('location-image-wrap').innerHTML='<div class=\'location-image-placeholder\'>Venue Photo</div>'" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <div class="schedule-header">
+      <p class="section-label">Agenda</p>
+      <h2 class="schedule-heading">2026 Event Schedule</h2>
+    </div>
+    <p class="schedule-date-label" id="schedule-date-label">Date TBD, 2026</p>
+    <div class="schedule-list" id="schedule-list"></div>
+  </section>
+
+  <footer>
+    <p>645 Ventures &nbsp;|&nbsp; &copy; 2026 All Rights Reserved</p>
+  </footer>
+
+  <script src="scripts.js?v=2"></script>
+</body>
+</html>

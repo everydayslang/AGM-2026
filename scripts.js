@@ -21,8 +21,8 @@ const previousSpeakers = [
 ];
 
 const scheduleItems = [
-  { time: "8:30 AM", event: "Doors Open", speakers: "" },
-  { time: "9:00 – 10:30 AM", event: "645 LP Only Presentation: Strategy and Performance", speakers: "Where we have been investing &amp; where we are going<br/><strong>Moderated by</strong> Aaron Holiday &amp; Nnamdi Okike" },
+  { time: "8:30 AM", event: "Doors Open", speakers: "", lpOnly: true },
+  { time: "9:00 – 10:30 AM", event: "645 LP Only Presentation: Strategy and Performance", speakers: "Where we have been investing &amp; where we are going<br/><strong>Moderated by</strong> Aaron Holiday &amp; Nnamdi Okike", lpOnly: true },
   { time: "10:30 – 10:45 AM", event: "Coffee &amp; Networking", speakers: "" },
   { time: "10:45 – 11:30 AM", event: "AI Impact on Capital &amp; Financial Markets", speakers: "<strong>Ray McGuire</strong>, President of Lazard<br/>Capital &amp; Financial Markets in a World After AI — what the AI shift means structurally for capital allocation, the institutions that move it, and the cycles ahead.<br/><strong>Moderator:</strong> Aaron Holiday" },
   { time: "11:30 AM – 12:30 PM", event: "AI Applications and Agents in Fintech", speakers: "<strong>Moderator:</strong> Willy" },
@@ -83,12 +83,17 @@ function renderSchedule() {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
-  if (scheduleItems.length === 0) {
+  const cfg = window.SITE_CONFIG || {};
+  const items = cfg.hideLpItems
+    ? scheduleItems.filter(item => !item.lpOnly)
+    : scheduleItems;
+
+  if (items.length === 0) {
     list.innerHTML = `<div class="schedule-row"><div class="schedule-time">TBD</div><div class="schedule-event" style="color:#888;font-style:italic;">Schedule will be announced soon.</div><div></div></div>`;
     return;
   }
 
-  list.innerHTML = scheduleItems.map(item => `
+  list.innerHTML = items.map(item => `
     <div class="schedule-row">
       <div class="schedule-time">${item.time}</div>
       <div class="schedule-event">${item.event}</div>
@@ -182,6 +187,15 @@ function initTheme() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Apply site variant config — hides sections and their nav links
+  const cfg = window.SITE_CONFIG || {};
+  (cfg.hideSections || []).forEach(id => {
+    const section = document.getElementById(id);
+    if (section) section.style.display = "none";
+    const navLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+    if (navLink) navLink.closest("li").style.display = "none";
+  });
+
   initTheme();
   renderFeaturedSpeakers();
   renderPreviousSpeakers();
@@ -190,12 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
   makeMarquee(
     document.getElementById("speakers-h-sticky"),
     document.getElementById("featured-speakers-grid"),
-    "left", 0.35
+    "left", 0.133
   );
   makeMarquee(
     document.querySelector(".prev-scroll-outer"),
     document.getElementById("previous-speakers-scroll"),
-    "right", 0.275
+    "right", 0.133
   );
 
   // Venue image fallback

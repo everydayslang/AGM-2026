@@ -80,21 +80,13 @@ body {
 .nav-logo {
   text-decoration: none;
   display: flex;
-  flex-direction: column;
-  line-height: 1;
+  align-items: center;
 }
-.logo-645 {
-  font-size: 1.9rem;
-  font-weight: 900;
-  color: var(--orange);
-  letter-spacing: -1px;
-}
-.logo-ventures {
-  font-size: 0.55rem;
-  font-weight: 700;
-  color: var(--orange);
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
+
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .nav-right {
@@ -107,7 +99,7 @@ body {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
 }
 .nav-links a {
   text-decoration: none;
@@ -781,7 +773,8 @@ footer p {
 @media (max-width: 900px) {
   #navbar { padding: 0 24px; }
   .nav-links { display: none; }
-  .nav-hamburger { display: block; }
+  .nav-hamburger { display: flex; }
+  .nav-right { gap: 4px; }
 
   .speakers-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
 

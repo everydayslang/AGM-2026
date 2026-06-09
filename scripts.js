@@ -186,7 +186,28 @@ function initTheme() {
   });
 }
 
+// Cycle hero background image on each page load
+const HERO_IMAGES = [
+  "images/water/Water%201%20Light.png",
+  "images/water/Water%202%20Light.png",
+  "images/water/Water%203%20Light.png",
+  "images/water/Water%204%20Light.png",
+  "images/water/Water%205%20Light.png",
+  "images/water/Water%206%20Light.png",
+  "images/water/Water%207%20Light.png",
+];
+
+function setHeroBg() {
+  const last = parseInt(sessionStorage.getItem("heroBgIndex") ?? "-1", 10);
+  let next;
+  do { next = Math.floor(Math.random() * HERO_IMAGES.length); } while (next === last && HERO_IMAGES.length > 1);
+  sessionStorage.setItem("heroBgIndex", next);
+  document.getElementById("hero").style.backgroundImage = `url('${HERO_IMAGES[next]}')`;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  setHeroBg();
+
   // Apply site variant config — hides sections and their nav links
   const cfg = window.SITE_CONFIG || {};
   (cfg.hideSections || []).forEach(id => {
@@ -195,6 +216,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLink = document.querySelector(`.nav-links a[href="#${id}"]`);
     if (navLink) navLink.closest("li").style.display = "none";
   });
+
+  // Toggle .nav-scrolled once hero scrolls out of view
+  (function() {
+    const hero = document.getElementById("hero");
+    const navbar = document.getElementById("navbar");
+    if (!hero || !navbar) return;
+    function update() {
+      navbar.classList.toggle("nav-scrolled", hero.getBoundingClientRect().bottom <= 0);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
 
   initTheme();
   renderFeaturedSpeakers();

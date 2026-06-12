@@ -377,7 +377,11 @@ body {
   display: block;
   height: 1px;
   background: var(--border);
-  margin: 0 48px;
+  /* Span the full viewport minus the 48px page gutters, breaking out of any
+     max-width container (e.g. #schedule) so all dividers line up edge to edge. */
+  width: calc(100vw - 96px);
+  margin-left: calc(50% - 50vw + 48px);
+  margin-right: 0;
 }
 
 .speakers-h-outer {
@@ -766,9 +770,22 @@ body {
   grid-template-rows: auto auto;
   gap: 12px 24px;
   padding: 64px 0;
-  border-top: 1px solid var(--border);
+  position: relative;
 }
-.schedule-row:last-child { border-bottom: 1px solid var(--border); }
+/* Separator lines span the full viewport minus the 48px page gutters, matching
+   the section dividers, even though the rows sit inside the 1100px column. */
+.schedule-row::before,
+.schedule-row:last-child::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100vw - 96px);
+  height: 1px;
+  background: var(--border);
+}
+.schedule-row::before { top: 0; }
+.schedule-row:last-child::after { bottom: 0; }
 
 .schedule-time {
   grid-column: 1 / -1;
@@ -823,36 +840,71 @@ footer p {
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 500px) {
-  .hero-meta-sep { display: none; }
-  .hero-meta-item { display: block; }
-  .hero-meta { line-height: 1.4; }
-  .hero-eyebrow { font-size: 0.75rem; font-weight: 700; }
-}
-
 @media (max-width: 900px) {
   #navbar { padding: 0 24px; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .nav-right { gap: 24px; }
-
-  .speakers-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
-
-  .location-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 64px 24px;
-  }
-
-  .schedule-row { grid-template-columns: 72px 1fr; gap: 16px; }
-  .schedule-speakers { grid-column: 2; }
-
-  #overview, #speakers, #schedule { padding: 64px 24px; }
   footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
 }
 
-@media (max-width: 540px) {
-  .speakers-grid { grid-template-columns: 1fr; }
-  .hero-numeral { letter-spacing: -4px; }
-  .prev-speaker { width: 120px; padding: 20px 16px; }
+/* ── MOBILE: single column ── */
+@media (max-width: 768px) {
+  /* Page gutters drop to 24px; section content panels handle their own sides */
+  #overview { padding: 64px 24px; }
+  #speakers { padding: 64px 0; }
+  #schedule { padding: 0 24px 64px; }
+
+  /* Section headers: auto height with smaller fitted titles */
+  .speakers-h-header,
+  .location-header,
+  .schedule-header {
+    height: auto;
+    min-height: 0;
+    padding: 28px 24px;
+  }
+  .featured-section-title,
+  .location-title,
+  .schedule-heading { --fit-max: 32px; }
+
+  /* Full-bleed section dividers + agenda lines align to the 24px gutters */
+  #speakers::before,
+  #location::before,
+  #schedule::before {
+    width: calc(100vw - 48px);
+    margin-left: calc(50% - 50vw + 24px);
+  }
+  .schedule-row::before,
+  .schedule-row:last-child::after { width: calc(100vw - 48px); }
+
+  /* Location: text first, image below, cropped to landscape */
+  .location-inner { padding: 0 24px 64px; }
+  .location-body { grid-template-columns: 1fr; gap: 32px; }
+  .location-image { border-radius: 12px; }
+  .location-image img { aspect-ratio: 3 / 2; object-fit: cover; height: auto; }
+
+  /* Agenda: smaller heading, description stacked under each event title */
+  .schedule-row {
+    grid-template-columns: 1fr;
+    gap: 10px 0;
+    padding: 40px 0;
+  }
+  .schedule-event,
+  .schedule-speakers { grid-column: 1; }
+  .schedule-event { font-size: 1.7rem; }
+
+  /* Horizontal carousels: 24px gutters + cards sized for narrow screens */
+  .speakers-grid { padding: 0 24px; }
+  .previous-speakers-scroll { padding: 16px 24px; }
+  .speaker-card { width: 280px; height: auto; padding: 36px 24px; }
+  .speaker-card img,
+  .speaker-photo-placeholder { width: 180px; height: 180px; margin-bottom: 20px; }
+  .prev-speaker { width: 260px; }
+}
+
+@media (max-width: 500px) {
+  .hero-meta-sep { display: none; }
+  .hero-meta-item { display: block; }
+  .hero-meta { line-height: 1.4; }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 700; }
 }

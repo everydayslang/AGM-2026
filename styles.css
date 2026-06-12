@@ -29,7 +29,6 @@
 [data-theme="light"] #hero::before {
   display: none;
 }
-[data-theme="light"] #hero::after { display: none; }
 [data-theme="light"] #hero { border-bottom: none; }
 
 [data-theme="light"] .hero-eyebrow { color: rgba(255,255,255,1); }
@@ -97,7 +96,10 @@ body {
   filter: none; /* red on hover */
 }
 #navbar.nav-scrolled .nav-logo-img {
-  filter: brightness(0); /* black after hero */
+  filter: brightness(0); /* black after hero (light mode) */
+}
+[data-theme="dark"] #navbar.nav-scrolled .nav-logo-img {
+  filter: brightness(0) invert(1); /* white after hero in dark mode */
 }
 #navbar.nav-scrolled .nav-logo:hover .nav-logo-img {
   filter: none; /* red on hover after hero */
@@ -213,7 +215,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   padding: 68px 24px 64px;
-  background-image: url('images/water/Water%201%20Light.png'); /* fallback; overridden by JS */
+  background-image: url('images/water/Coastline%201.avif'); /* fallback; overridden by JS */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -222,13 +224,15 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(17,17,17,0.0) 0%, rgba(17,17,17,0.4) 100%);
+  /* Scrim keeps the white hero text legible over the bright coastline photos */
+  background: linear-gradient(to bottom, rgba(8,22,34,0.33) 0%, rgba(8,22,34,0.50) 50%, rgba(8,22,34,0.68) 100%);
   pointer-events: none;
 }
 #hero > * { position: relative; z-index: 1; }
 
 .hero-content {
   text-align: center;
+  width: 100%; /* stable target width for the fit-width title */
 }
 .hero-eyebrow {
   font-size: 1.9rem;
@@ -241,11 +245,15 @@ body {
 .hero-title {
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 900;
-  letter-spacing: -2px;
+  letter-spacing: -0.018em;
   line-height: 1;
   color: var(--text);
   margin-bottom: 24px;
+  --fit-max: 120px;
 }
+
+/* Headers scaled by JS (fitHeaders) to span the full viewport width */
+.fit-width { white-space: nowrap; }
 
 .hero-meta {
   margin-top: 0;
@@ -394,7 +402,7 @@ body {
 .speaker-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 22px;
   width: 340px;
   height: 460px;
   padding: 52px 36px 40px;
@@ -454,17 +462,31 @@ body {
   position: sticky;
   top: 68px;
   z-index: 10;
+  isolation: isolate;
+}
+
+/* Fade the blurred backdrop out toward the bottom so there's no hard edge */
+.speakers-h-header::before,
+.location-header::before,
+.schedule-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: var(--nav-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  pointer-events: none;
 }
 .featured-section-title {
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 900;
-  letter-spacing: -1px;
+  letter-spacing: -0.018em;
   line-height: 1.05;
-  margin-top: 8px;
   color: var(--text);
+  --fit-max: 64px;
 }
 
 /* ── PREVIOUS NOTABLE SPEAKERS ── */
@@ -484,6 +506,11 @@ body {
 
 .previous-speakers-scroll {
   display: flex;
+  align-items: center;
+  /* Reserve the tallest expanded card (~129px) PLUS this row's 16px top/bottom
+     padding so a hovered card grows symmetrically into the slack — without
+     ever resizing the row, which would shift the siblings and the section below. */
+  min-height: 164px;
   gap: 24px;
   padding: 16px 48px;
   width: max-content;
@@ -493,10 +520,11 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
+  width: 280px;
   padding: 20px 24px;
   background: var(--prev-card-bg);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: default;
   transition: background 0.2s, border-color 0.2s, transform 0.3s ease;
   flex-shrink: 0;
@@ -538,7 +566,7 @@ body {
 
 .prev-speaker-title {
   font-size: 0.72rem;
-  color: var(--orange);
+  color: var(--text-muted);
   font-weight: 500;
   line-height: 1.4;
   max-height: 0;
@@ -574,9 +602,9 @@ body {
 .location-title {
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 900;
-  letter-spacing: -1px;
-  margin-bottom: 24px;
+  letter-spacing: -0.018em;
   line-height: 1.05;
+  --fit-max: 64px;
 }
 .location-text p {
   font-size: 0.9rem;
@@ -585,17 +613,18 @@ body {
   margin-bottom: 20px;
 }
 .location-header {
+  /* break out of the 1100px container so the title can span the viewport */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   height: 120px;
-  padding: 0;
+  padding: 0 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: sticky;
   top: 68px;
   z-index: 10;
-  background: var(--nav-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  isolation: isolate;
 }
 
 .location-text .section-label {
@@ -625,6 +654,9 @@ body {
 .location-icon-hover { display: none; }
 .location-map-link:hover .location-icon-default { display: none; }
 .location-map-link:hover .location-icon-hover { display: flex; }
+/* SVGs are white-filled (for dark mode); render them dark in light mode */
+[data-theme="light"] .location-icon-default,
+[data-theme="light"] .location-icon-hover { filter: brightness(0); }
 
 .location-address-text p {
   font-size: 0.9rem;
@@ -697,8 +729,11 @@ body {
   margin: 0 auto;
 }
 .schedule-header {
+  /* break out of the 1100px container so the title can span the viewport */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   height: 120px;
-  padding: 0;
+  padding: 0 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -706,15 +741,14 @@ body {
   top: 68px;
   z-index: 10;
   margin-bottom: 0;
-  background: var(--nav-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  isolation: isolate;
 }
 .schedule-heading {
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   font-weight: 900;
-  letter-spacing: -1px;
+  letter-spacing: -0.018em;
   line-height: 1.05;
+  --fit-max: 64px;
 }
 
 .schedule-date-label {

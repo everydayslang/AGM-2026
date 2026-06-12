@@ -11,13 +11,28 @@ const featuredSpeakers = [
 ];
 
 const previousSpeakers = [
-  { name: "Reid Hoffman", title: "Co-Founder, LinkedIn", photo: "" },
-  { name: "Scott Kupor", title: "COO & Managing Partner, A16Z", photo: "" },
-  { name: "Roger Ferguson", title: "CEO of TIAA & Former Vice Chairman, Federal Reserve", photo: "" },
-  { name: "Ken Chenault", title: "Chairman and Managing Director, General Catalyst", photo: "" },
-  { name: "Dr. Elizabeth Alexander", title: "President, Andrew W. Mellon Foundation", photo: "" },
-  { name: "Brendan Carr, MD", title: "CEO, Mount Sinai Health Systems", photo: "" },
-  { name: "Kenneth C. Frazier", title: "Former Chairman and CEO, Merck", photo: "" },
+  { name: "Reid Hoffman", title: "Co-Founder, LinkedIn", photo: "images/speakers/Reid%20Hoffman.png" },
+  { name: "Scott Kupor", title: "COO & Managing Partner, A16Z", photo: "images/speakers/Scott%20Kupor.png" },
+  { name: "Roger Ferguson", title: "CEO of TIAA & Former Vice Chairman, Federal Reserve", photo: "images/speakers/Roger%20Ferguson.png" },
+  { name: "Ken Chenault", title: "Chairman and Managing Director, General Catalyst", photo: "images/speakers/Ken%20Chenault.png" },
+  { name: "Dr. Elizabeth Alexander", title: "President, Andrew W. Mellon Foundation", photo: "images/speakers/Dr.%20Elizabeth%20Alexander.png" },
+  { name: "Brendan Carr, MD", title: "CEO, Mount Sinai Health Systems", photo: "images/speakers/Brendan%20Carr.png" },
+  { name: "Kenneth C. Frazier", title: "Former Chairman and CEO, Merck", photo: "images/speakers/Kenneth%20C.%20Frazier.png" },
+  { name: "Howard Morgan", title: "Co-Founder, First Round Capital & Chairman, B Capital Group", photo: "images/speakers/Howard%20Morgan.png" },
+  { name: "Scott Maxwell", title: "Senior Managing Director, OpenView Venture Partners", photo: "images/speakers/Scott%20Maxwell.png" },
+  { name: "Andrew Golden", title: "President, PRINCO", photo: "images/speakers/Andrew%20Golden.png" },
+  { name: "Jeremy Levine", title: "Partner, Bessemer Venture Partners", photo: "images/speakers/Jeremy%20Levine.png" },
+  { name: "Kim Lew", title: "President & CEO, Columbia Investment Management Company", photo: "images/speakers/Kim%20Lew.png" },
+  { name: "Hemant Taneja", title: "CEO & Managing Director, General Catalyst", photo: "images/speakers/Hemant%20Taneja.png" },
+  { name: "Cassie Kozyrkov", title: "Chief Decision Scientist, Google", photo: "images/speakers/Cassie%20Kozyrkov.png" },
+  { name: "Greg Morrisett", title: "Dean and Vice Provost, Cornell Tech", photo: "images/speakers/Greg%20Morrisett.png" },
+  { name: "Kathy Wylde", title: "President & CEO, Partnership for New York City", photo: "images/speakers/Kathy%20Wylde.png" },
+  { name: "Tarek Sherif", title: "CEO & Co-Founder, Medidata", photo: "images/speakers/Tarek%20Sherif.png" },
+  { name: "J. Christopher Giancarlo", title: "Former Chairman, US Commodity Futures Trading Commission", photo: "images/speakers/Chris%20Giancarlo.png" },
+  { name: "Leo Schwartz", title: "Senior Reporter, Fortune", photo: "images/speakers/Leo%20Schwartz.png" },
+  { name: "Shmuel Kliger", title: "Founder, Causely; Former Founder, Turbonomic ($2 billion acq. by IBM)", photo: "images/speakers/Shmuel%20Kliger.png" },
+  { name: "Ran Reske", title: "Co-Founder & President, Inner Balance; Former Co-Founder & CEO, Resident ($1 billion acq. by Ashley Furniture)", photo: "images/speakers/Ran%20Reske.png" },
+  { name: "Sarah Daccarett, MD", title: "Founder & CEO, Inner Balance", photo: "images/speakers/Sarah%20Daccarette,%20MD.png" },
 ];
 
 const scheduleItems = [
@@ -59,10 +74,12 @@ function renderPreviousSpeakers() {
 
   container.innerHTML = previousSpeakers.map(s => {
     const parts = s.name.split(" ");
-    const prefixes = ["Dr.", "Mr.", "Ms.", "Mrs."];
-    const splitAt = prefixes.includes(parts[0]) && parts.length > 2 ? 2 : 1;
-    const firstName = parts.slice(0, splitAt).join(" ");
-    const lastName  = parts.slice(splitAt).join(" ");
+    // Names with a suffix ("Brendan Carr, MD") split at the first space so the
+    // suffix stays with the surname; otherwise the last word is the surname and
+    // everything before it (initials, given names) goes on the top line.
+    const hasSuffix = s.name.includes(",");
+    const firstName = hasSuffix ? parts[0] : parts.slice(0, -1).join(" ");
+    const lastName  = hasSuffix ? parts.slice(1).join(" ") : parts[parts.length - 1];
     return `
     <div class="prev-speaker">
       ${s.photo
@@ -105,29 +122,59 @@ function renderSchedule() {
 function makeMarquee(containerEl, trackEl, direction, speed) {
   if (!containerEl || !trackEl || trackEl.children.length === 0) return;
 
-  Array.from(trackEl.children).forEach(item => {
-    const clone = item.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    trackEl.appendChild(clone);
-  });
-
-  let paused = false;
-  containerEl.addEventListener("mouseenter", () => { paused = true; });
-  containerEl.addEventListener("mouseleave", () => { paused = false; });
-
+  // One "period" = the width of the original set of cards.
+  const originals = Array.from(trackEl.children);
   requestAnimationFrame(() => {
-    const halfWidth = trackEl.scrollWidth / 2;
-    if (direction === "right") containerEl.scrollLeft = halfWidth;
+    const period = trackEl.scrollWidth;
+    if (period === 0) return;
 
+    // Clone the set until there's a full period of identical content buffering
+    // each side of a viewport-wide window — enough for seamless wrapping in
+    // both directions whether scrolling manually or via the auto-advance.
+    const minWidth = period * 2 + containerEl.clientWidth + period;
+    let guard = 0;
+    while (trackEl.scrollWidth < minWidth && guard++ < 20) {
+      originals.forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        trackEl.appendChild(clone);
+      });
+    }
+
+    let pos = period;
+    const step = direction === "left" ? speed : -speed;
+
+    // Normalize into the seamless window [period, 2*period). Every set is
+    // identical, so snapping by a whole period is visually invisible.
+    const norm = v => {
+      while (v >= 2 * period) v -= period;
+      while (v < period) v += period;
+      return v;
+    };
+
+    containerEl.scrollLeft = pos;
+
+    // Manual (trackpad/drag) scrolling still loops infinitely: when scrollLeft
+    // crosses the window edge, snap it back by a period and keep the accumulator
+    // in sync. Programmatic writes stay in-range, so this is a no-op for them.
+    containerEl.addEventListener("scroll", () => {
+      const sl = containerEl.scrollLeft;
+      if (sl >= 2 * period) { containerEl.scrollLeft = sl - period; pos -= period; }
+      else if (sl < period) { containerEl.scrollLeft = sl + period; pos += period; }
+    }, { passive: true });
+
+    let paused = false;
+    containerEl.addEventListener("mouseenter", () => { paused = true; });
+    containerEl.addEventListener("mouseleave", () => { paused = false; });
+
+    // Accumulate position as a float and write it every frame — reading
+    // scrollLeft back would round to an integer and stall the sub-pixel step.
     function tick() {
       if (!paused) {
-        if (direction === "left") {
-          containerEl.scrollLeft += speed;
-          if (containerEl.scrollLeft >= halfWidth) containerEl.scrollLeft -= halfWidth;
-        } else {
-          containerEl.scrollLeft -= speed;
-          if (containerEl.scrollLeft <= 0) containerEl.scrollLeft += halfWidth;
-        }
+        // Adopt the user's position if they scrolled manually since last frame.
+        if (Math.abs(containerEl.scrollLeft - pos) > 1.5) pos = norm(containerEl.scrollLeft);
+        pos = norm(pos + step);
+        containerEl.scrollLeft = pos;
       }
       requestAnimationFrame(tick);
     }
@@ -188,14 +235,35 @@ function initTheme() {
 
 // Cycle hero background image on each page load
 const HERO_IMAGES = [
-  "images/water/Water%201%20Light.png",
-  "images/water/Water%202%20Light.png",
-  "images/water/Water%203%20Light.png",
-  "images/water/Water%204%20Light.png",
-  "images/water/Water%205%20Light.png",
-  "images/water/Water%206%20Light.png",
-  "images/water/Water%207%20Light.png",
+  "images/water/Coastline%201.avif",
+  "images/water/Coastline%202.avif",
+  "images/water/Coastline%203.avif",
+  "images/water/Coastline%204.avif",
+  "images/water/Coastline%205.avif",
+  "images/water/Coastline%206.avif",
+  "images/water/Coastline%207.avif",
+  "images/water/Coastline%208.avif",
+  "images/water/Coastline%209.avif",
+  "images/water/Coastline%2010.avif",
 ];
+
+// Scale .fit-width headers toward the full container width, capped at the
+// element's --fit-max so short titles don't blow up on wide screens.
+function fitHeaders() {
+  document.querySelectorAll(".fit-width").forEach(el => {
+    const target = el.clientWidth; // block width = container content width
+    el.style.fontSize = "100px";
+    el.style.display = "inline-block"; // shrink/overflow to true text width
+    const textW = el.scrollWidth;
+    el.style.display = "";
+    if (!textW) return;
+    const fitPx = 100 * target / textW;
+    const maxPx = parseFloat(getComputedStyle(el).getPropertyValue("--fit-max")) || Infinity;
+    el.style.fontSize = `${Math.floor(Math.min(fitPx, maxPx) * 10) / 10}px`;
+  });
+}
+window.addEventListener("resize", fitHeaders);
+if (document.fonts?.ready) document.fonts.ready.then(fitHeaders);
 
 function setHeroBg() {
   const last = parseInt(sessionStorage.getItem("heroBgIndex") ?? "-1", 10);
@@ -233,16 +301,17 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedSpeakers();
   renderPreviousSpeakers();
   renderSchedule();
+  fitHeaders();
 
   makeMarquee(
     document.getElementById("speakers-h-sticky"),
     document.getElementById("featured-speakers-grid"),
-    "left", 0.133
+    "left", 0.1
   );
   makeMarquee(
     document.querySelector(".prev-scroll-outer"),
     document.getElementById("previous-speakers-scroll"),
-    "right", 0.133
+    "right", 0.1
   );
 
   // Venue image fallback

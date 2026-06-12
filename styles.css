@@ -768,7 +768,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 12px 24px;
+  gap: 24px 36px;
   padding: 64px 0;
   position: relative;
 }
@@ -855,6 +855,17 @@ footer p {
   #speakers { padding: 64px 0; }
   #schedule { padding: 0 24px 64px; }
 
+  /* Hero title: one word per line, larger */
+  .hero-title {
+    white-space: normal;
+    word-spacing: 100vw; /* forces a line break after every word */
+    font-size: clamp(3.5rem, 18vw, 5rem);
+    line-height: 1.02;
+  }
+
+  /* Overview paragraph: smaller body text on mobile */
+  .overview-desc { font-size: 1.15rem; line-height: 1.55; margin-bottom: 32px; }
+
   /* Section headers: auto height with smaller fitted titles */
   .speakers-h-header,
   .location-header,
@@ -886,19 +897,25 @@ footer p {
   /* Agenda: smaller heading, description stacked under each event title */
   .schedule-row {
     grid-template-columns: 1fr;
-    gap: 10px 0;
+    gap: 20px 0;
     padding: 40px 0;
   }
   .schedule-event,
   .schedule-speakers { grid-column: 1; }
   .schedule-event { font-size: 1.7rem; }
 
-  /* Horizontal carousels: 24px gutters + cards sized for narrow screens */
-  .speakers-grid { padding: 0 24px; }
+  /* Horizontal carousels scroll full-bleed to the viewport edge (the scroll
+     containers have no side padding); only the first card is inset 24px so it
+     lines up with the rest of the page. */
+  .speakers-grid { padding: 0 24px; gap: 36px; }
   .previous-speakers-scroll { padding: 16px 24px; }
-  .speaker-card { width: 280px; height: auto; padding: 36px 24px; }
+  /* Featured cards: ~75% size with more breathing room between them */
+  .speaker-card { width: 215px; height: auto; padding: 26px 18px; }
   .speaker-card img,
-  .speaker-photo-placeholder { width: 180px; height: 180px; margin-bottom: 20px; }
+  .speaker-photo-placeholder { width: 135px; height: 135px; margin-bottom: 14px; }
+  .speaker-card .speaker-name { font-size: 0.95rem; }
+  .speaker-card .speaker-title { font-size: 0.72rem; }
+  /* Previous-speaker cards stay wide enough to read the full name */
   .prev-speaker { width: 260px; }
 }
 

@@ -251,6 +251,9 @@ const HERO_IMAGES = [
 // element's --fit-max so short titles don't blow up on wide screens.
 function fitHeaders() {
   document.querySelectorAll(".fit-width").forEach(el => {
+    // Skip elements that are allowed to wrap (e.g. the hero title on mobile);
+    // clear any stale inline size so CSS controls them.
+    if (getComputedStyle(el).whiteSpace !== "nowrap") { el.style.fontSize = ""; return; }
     const target = el.clientWidth; // block width = container content width
     el.style.fontSize = "100px";
     el.style.display = "inline-block"; // shrink/overflow to true text width

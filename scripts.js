@@ -1,13 +1,14 @@
 const featuredSpeakers = [
-  { name: "Ray McGuire", title: "President, Lazard", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
-  { name: "Speaker Name", title: "Title, Organization", photo: "" },
+  // Speakers, ordered last-to-first by agenda appearance...
+  { name: "Andrew Yang", title: "Founder, Forward Party", photo: "images/featured-speakers/Andrew%20Yang.png", bio: "Entrepreneur, 2020 U.S. presidential candidate, and founder of Venture for America and the Forward Party. A leading voice on the future of work, automation, and economic policy." },
+  { name: "Albert Wenger", title: "Managing Partner, Union Square Ventures", photo: "images/featured-speakers/Albert%20Wenger.png", bio: "Managing Partner at Union Square Ventures and author of The World After Capital. He invests in companies whose technology broadens access to knowledge, capital, and opportunity." },
+  { name: "Natalie Serrino", title: "Co-Founder, Gimlet Labs", photo: "images/featured-speakers/Natalie%20Serrino.png", bio: "Co-Founder of Gimlet Labs, working on the compute, inference, and energy challenges shaping the next generation of AI infrastructure." },
+  { name: "Josh Wolfe", title: "Co-Founder & Managing Partner, Lux Capital", photo: "images/featured-speakers/Josh%20Wolfe.png", bio: "Co-Founder and Managing Partner of Lux Capital, where he backs scientists and engineers building companies at the frontier of deep tech, defense, and the physical sciences." },
+  { name: "Luca Cartechini", title: "Co-Founder & CEO, Circeus", photo: "images/featured-speakers/Luca%20Cartechini.png", bio: "Luca Cartechini is the Co-Founder and CEO of Circeus, an AI-native holding for mission-critical software. Circeus has completed 20+ acquisitions, raised $250M from global investors, and serves 200,000+ businesses worldwide.\n\nCirceus acquires and evolves the software that runs the physical world. A centralised AI team rebuilds these products around frontier models, embedding intelligence and deploying agentic workflows that expand TAM and improve margins, bringing the capabilities of AI to everyday businesses.\n\nEarlier, Luca worked in Research at Jefferies covering European technology and in Venture Capital backing high-growth B2B software, and served as an Adjunct Professor of Entrepreneurship and Corporate Finance at ESCP Business School for 5 years." },
+  { name: "Ray McGuire", title: "President, Lazard", photo: "images/featured-speakers/Ray%20Mcguire.png", bio: "Raymond J. McGuire is the President and Co-Head of Financial Advisory in North America at Lazard. As a member of Lazard's senior leadership team, he strengthens key stakeholder relationships, counsels on complex transactions, and drives the firm's domestic and international growth. In November 2025, he joined the Board of Directors of Harvard Management Company, which oversees Harvard University's endowment and related assets.\n\nPrior to Lazard, Mr. McGuire spent 13 years as Citigroup's Global Head of Corporate and Investment Banking, leading a $20 billion+ global business and holding the longest tenure in that role in Wall Street history. He later served as Citigroup Vice Chairman and Chairman of its Banking, Capital Markets, and Advisory business. His earlier career included being the Co-Global Head of Mergers & Acquisitions at Morgan Stanley and senior roles at Merrill Lynch and was one of the early Partners at Wasserstein Perella. He began his career in the Mergers & Acquisitions Group at The First Boston Corporation. He has advised on transactions exceeding $800 billion, across global industries and geographies.\n\nMr. McGuire serves on the board of Vornado Realty Trust and has held prior corporate directorships at Hess Corporation and KKR & Co. In 2026, he was appointed to the inaugural Board of Advisors of Black Entertainment Television (BET). Mr. McGuire also holds leadership positions on several nonprofit boards, including the Harvard Management Company, the American Museum of Natural History (Treasurer), the Black Trustee Alliance for Art Museums (Co-Chair), the Hotchkiss School (Vice President), the New York Public Library (Chair Executive-Committee), the Regional Plan Association (Chairman), the Trinity School and the Whitney Museum of American Art. As the 22-year Chairman of the Board of the Studio Museum in Harlem, he led a transformative $300 million capital campaign culminating in its historic November 2025 reopening in its critically acclaimed new building on 125th Street in Harlem, NY.\n\nMr. McGuire earned his M.B.A. and J.D. from Harvard Business School and Harvard Law School, and his A.B. from Harvard College. He is a graduate of the Hotchkiss School." },
+  // ...then moderators in alphabetical order.
+  { name: "Aaron Holiday", title: "Co-Founder & Managing Partner, 645 Ventures", photo: "images/645-team/Aaron%20Holiday.png", bio: "Co-Founder and Managing Partner of 645 Ventures, investing across the application and infrastructure layers of AI and backing exceptional founders from seed through growth." },
+  { name: "Nnamdi Okike", title: "Co-Founder & Managing Partner, 645 Ventures", photo: "images/645-team/Nnamdi%20Okike.png", bio: "Co-Founder and Managing Partner of 645 Ventures, focused on backing exceptional founders building category-defining technology companies from seed through growth." },
 ];
 
 const previousSpeakers = [
@@ -29,22 +30,33 @@ const previousSpeakers = [
   { name: "Kathy Wylde", title: "President & CEO, Partnership for New York City", photo: "images/previous-speakers/Kathy%20Wylde.png" },
   { name: "Tarek Sherif", title: "CEO & Co-Founder, Medidata", photo: "images/previous-speakers/Tarek%20Sherif.png" },
   { name: "J. Christopher Giancarlo", title: "Former Chairman, US Commodity Futures Trading Commission", photo: "images/previous-speakers/Chris%20Giancarlo.png" },
-  { name: "Leo Schwartz", title: "Senior Reporter, Fortune", photo: "images/previous-speakers/Leo%20Schwartz.png" },
-  { name: "Shmuel Kliger", title: "Founder, Causely; Former Founder, Turbonomic ($2 billion acq. by IBM)", photo: "images/previous-speakers/Shmuel%20Kliger.png" },
   { name: "Ran Reske", title: "Co-Founder & President, Inner Balance; Former Co-Founder & CEO, Resident ($1 billion acq. by Ashley Furniture)", photo: "images/previous-speakers/Ran%20Reske.png" },
-  { name: "Sarah Daccarett, MD", title: "Founder & CEO, Inner Balance", photo: "images/previous-speakers/Sarah%20Daccarette,%20MD.png" },
 ];
 
 const scheduleItems = [
   { time: "8:30 AM", event: "Breakfast &amp; Registration", speakers: "", lpOnly: true },
-  { time: "9:00 – 10:30 AM", event: "645 Strategy and Performance Discussion", speakers: "Where we've been investing, visibility into upcoming liquidity/distributions, organizational growth, and details on the upcoming fundraise for 645 Fund V and Select II. We will dive deep into the portfolio, performance, and the thesis driving the years ahead.", lpOnly: true },
+  { time: "9:00 – 10:30 AM", event: "645 Strategy and Performance Discussion", speakers: "Where we've been investing, visibility into upcoming liquidity/distributions, organizational growth, and details on the upcoming fundraise for 645 Fund V and Select II. We will dive deep into the portfolio, performance, and the thesis driving the years ahead.", lpOnly: true, people: [
+    { name: "Aaron Holiday", role: "Moderator", photo: "images/645-team/Aaron%20Holiday.png" },
+    { name: "Nnamdi Okike", role: "Moderator", photo: "images/645-team/Nnamdi%20Okike.png" },
+  ] },
   { time: "10:30 – 10:45 AM", event: "Coffee &amp; Networking", speakers: "" },
-  { time: "10:45 – 11:30 AM", event: "AI Impact on Capital and Financial Markets", speakers: "A new class of trillion-dollar AI entrants — SpaceX, Anthropic, OpenAI — is reshaping public market dynamics, how capital is allocated, and how assets are priced. What do the IPO and M&amp;A markets do in response, what can past cycles of transformative innovation teach us, and what does it all mean for GDP and growth in the decade ahead?" },
+  { time: "10:45 – 11:30 AM", event: "AI Impact on Capital and Financial Markets", speakers: "A new class of trillion-dollar AI entrants — SpaceX, Anthropic, OpenAI — is reshaping public market dynamics, how capital is allocated, and how assets are priced. What do the IPO and M&amp;A markets do in response, what can past cycles of transformative innovation teach us, and what does it all mean for GDP and growth in the decade ahead?", people: [
+    { name: "Ray McGuire", role: "Speaker", photo: "images/featured-speakers/Ray%20Mcguire.png" },
+    { name: "Aaron Holiday", role: "Moderator", photo: "images/645-team/Aaron%20Holiday.png" },
+  ] },
   { time: "11:30 AM – 12:30 PM", event: "The Application Layer of AI", speakers: "Software is becoming an agent. Where are autonomous systems already rewiring fintech — and what gets rebuilt, automated, or displaced next?" },
   { time: "12:30 – 2:00 PM", event: "Networking Lunch", speakers: "" },
-  { time: "2:00 – 2:45 PM", event: "Beyond the Model Layer — The Deep Tech Frontier", speakers: "The future for durable returns and market growth sits below and beyond the model layer, specifically in deep tech, defense, and the hard physical frontier the market hasn't caught up to yet. A conversation on where the next decade of value gets built, and why it's harder to copy." },
-  { time: "2:45 – 3:30 PM", event: "Compute, Chips, and Energy Founders: Glimpse into Necessary Innovations", speakers: "Three founders present on the physical frontier powering AI: the compute, energy, and material breakthroughs that have quietly become the constraint on everything built above them." },
-  { time: "3:30 – 4:15 PM", event: "The Future of Human Value: Addressing Economic &amp; Labor Market Changes", speakers: "As AI transforms knowledge work, hard questions move to the center: what happens to the social contract, how is the upside distributed, and do ideas like UBI move from the fringe to the mainstream? A conversation on what remains uniquely human — and on the policy and economic choices that will shape the next decade." },
+  { time: "2:00 – 2:45 PM", event: "Beyond the Model Layer — The Deep Tech Frontier", speakers: "The future for durable returns and market growth sits below and beyond the model layer, specifically in deep tech, defense, and the hard physical frontier the market hasn't caught up to yet. A conversation on where the next decade of value gets built, and why it's harder to copy.", people: [
+    { name: "Josh Wolfe", role: "Speaker", photo: "images/featured-speakers/Josh%20Wolfe.png" },
+  ] },
+  { time: "2:45 – 3:30 PM", event: "Compute, Chips, and Energy Founders: Glimpse into Necessary Innovations", speakers: "Three founders present on the physical frontier powering AI: the compute, energy, and material breakthroughs that have quietly become the constraint on everything built above them.", people: [
+    { name: "Natalie Serrino", role: "Speaker", photo: "images/featured-speakers/Natalie%20Serrino.png" },
+  ] },
+  { time: "3:30 – 4:15 PM", event: "The Future of Human Value: Addressing Economic &amp; Labor Market Changes", speakers: "As AI transforms knowledge work, hard questions move to the center: what happens to the social contract, how is the upside distributed, and do ideas like UBI move from the fringe to the mainstream? A conversation on what remains uniquely human — and on the policy and economic choices that will shape the next decade.", people: [
+    { name: "Albert Wenger", role: "Speaker", photo: "images/featured-speakers/Albert%20Wenger.png" },
+    { name: "Andrew Yang", role: "Speaker", photo: "images/featured-speakers/Andrew%20Yang.png" },
+    { name: "Nnamdi Okike", role: "Moderator", photo: "images/645-team/Nnamdi%20Okike.png" },
+  ] },
   { time: "4:15 PM", event: "Closing Remarks", speakers: "" },
 ];
 
@@ -57,15 +69,119 @@ function renderFeaturedSpeakers() {
     return;
   }
 
-  grid.innerHTML = featuredSpeakers.map(s => `
-    <div class="speaker-card">
+  grid.innerHTML = featuredSpeakers.map((s, i) => {
+    // Split "Role, Company" at the first comma so the company sits on its own
+    // line and never dangles after a wrapped role.
+    const ci = s.title.indexOf(",");
+    const role = ci === -1 ? s.title : s.title.slice(0, ci).trim();
+    const company = ci === -1 ? "" : s.title.slice(ci + 1).trim();
+    return `
+    <div class="speaker-card"${s.bio ? ` data-bio-idx="${i}"` : ``}>
       ${s.photo
         ? `<img src="${s.photo}" alt="${s.name}" />`
         : `<div class="speaker-photo-placeholder"></div>`}
       <div class="speaker-name">${s.name}</div>
-      <div class="speaker-title">${s.title}</div>
-    </div>
-  `).join("");
+      <div class="speaker-title">
+        <span class="speaker-title-role">${role}</span>
+        ${company ? `<span class="speaker-title-company">${company}</span>` : ``}
+      </div>
+      ${s.bio ? `<span class="speaker-bio-cue">Read bio</span>` : ``}
+    </div>`;
+  }).join("");
+}
+
+// Render a bio as paragraphs, bolding (900) the first occurrence of the
+// person's name — found via their last name, then extended left across the
+// run of capitalized name parts/initials that precede it (e.g. "Raymond J.").
+function bioToHTML(bio, fullName) {
+  const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  let start = -1, end = -1;
+  if (fullName) {
+    const last = fullName.trim().split(/\s+/).pop();
+    const idx = bio.indexOf(last);
+    if (idx !== -1) {
+      end = idx + last.length;
+      const m = bio.slice(0, idx).match(/(?:[A-Z][\w.''-]*\s+)+$/);
+      start = m ? idx - m[0].length : idx;
+    }
+  }
+  const html = start !== -1
+    ? esc(bio.slice(0, start)) + '<strong class="bio-name">' + esc(bio.slice(start, end)) + "</strong>" + esc(bio.slice(end))
+    : esc(bio);
+  return html.split(/\n\s*\n/).map(p => `<p>${p.trim()}</p>`).join("");
+}
+
+// Clicking a card slots its bio into the row right after it, widening the
+// list. The marquee is locked while open so the card stays put and the
+// inserted panel can be scrolled into view without the wrap-snap fighting it.
+function initFeaturedBios() {
+  const grid = document.getElementById("featured-speakers-grid");
+  const sticky = document.getElementById("speakers-h-sticky");
+  if (!grid) return;
+
+  let openCard = null;
+  let panel = null;
+
+  function close() {
+    if (!openCard) return;
+    openCard.classList.remove("bio-open");
+    const cue = openCard.querySelector(".speaker-bio-cue");
+    if (cue) cue.textContent = "Read bio";
+    openCard = null;
+    if (sticky) delete sticky.dataset.locked;
+    if (panel) {
+      const el = panel;
+      panel = null;
+      el.classList.remove("open"); // collapse width back to 0, then remove
+      setTimeout(() => el.remove(), 450);
+    }
+  }
+
+  function open(card) {
+    close();
+    const idx = card.dataset.bioIdx;
+    const data = idx != null ? featuredSpeakers[idx] : null;
+    const bio = data ? data.bio : "";
+    if (!bio) return;
+    openCard = card;
+    card.classList.add("bio-open");
+    const cue = card.querySelector(".speaker-bio-cue");
+    if (cue) cue.textContent = "Close";
+    if (sticky) sticky.dataset.locked = "1";
+
+    panel = document.createElement("div");
+    panel.className = "speaker-bio-inline";
+    const inner = document.createElement("div");
+    inner.className = "speaker-bio-inline-inner";
+    inner.innerHTML = bioToHTML(bio, data.name);
+    panel.appendChild(inner);
+    card.after(panel); // slot it into the flex row right after the clicked card
+
+    const el = panel;
+    requestAnimationFrame(() => {
+      if (panel !== el) return;
+      el.classList.add("open");
+      // Once it has widened, nudge it into view if it ran off the right edge.
+      setTimeout(() => {
+        if (panel === el) el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+      }, 420);
+    });
+  }
+
+  // The whole card is clickable.
+  grid.addEventListener("click", (e) => {
+    const card = e.target.closest(".speaker-card[data-bio-idx]");
+    if (!card) return;
+    e.stopPropagation();
+    if (card === openCard) close();
+    else open(card);
+  });
+
+  // Any click outside a card — including on the drawer itself — closes it.
+  document.addEventListener("click", () => {
+    if (openCard) close();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 }
 
 function renderPreviousSpeakers() {
@@ -110,13 +226,26 @@ function renderSchedule() {
     return;
   }
 
-  list.innerHTML = items.map(item => `
+  list.innerHTML = items.map(item => {
+    const peopleHtml = (item.people && item.people.length)
+      ? `<div class="schedule-people">` + item.people.map(p => `
+          <div class="schedule-person">
+            ${p.photo
+              ? `<img class="schedule-avatar" src="${p.photo}" alt="${p.name}" />`
+              : `<div class="schedule-avatar schedule-avatar-placeholder"></div>`}
+            <div class="schedule-person-info">
+              <span class="schedule-person-name">${p.name}</span>
+              ${p.role ? `<span class="schedule-person-role">${p.role}</span>` : ``}
+            </div>
+          </div>`).join("") + `</div>`
+      : "";
+    return `
     <div class="schedule-row">
       <div class="schedule-time">${item.time}</div>
       <div class="schedule-event">${item.event}</div>
-      <div class="schedule-speakers">${item.speakers}</div>
-    </div>
-  `).join("");
+      <div class="schedule-speakers">${item.speakers}${peopleHtml}</div>
+    </div>`;
+  }).join("");
 }
 
 function makeMarquee(containerEl, trackEl, direction, speed) {
@@ -158,6 +287,9 @@ function makeMarquee(containerEl, trackEl, direction, speed) {
     // crosses the window edge, snap it back by a period and keep the accumulator
     // in sync. Programmatic writes stay in-range, so this is a no-op for them.
     containerEl.addEventListener("scroll", () => {
+      // While locked (a bio is open and the row is widened), leave scrollLeft
+      // alone so revealing the inline panel doesn't get snapped by a period.
+      if (containerEl.dataset.locked === "1") return;
       const sl = containerEl.scrollLeft;
       if (sl >= 2 * period) { containerEl.scrollLeft = sl - period; pos -= period; }
       else if (sl < period) { containerEl.scrollLeft = sl + period; pos += period; }
@@ -170,7 +302,8 @@ function makeMarquee(containerEl, trackEl, direction, speed) {
     // Accumulate position as a float and write it every frame — reading
     // scrollLeft back would round to an integer and stall the sub-pixel step.
     function tick() {
-      if (!paused) {
+      // dataset.locked is set while a bio panel is open so the card stays put.
+      if (!paused && containerEl.dataset.locked !== "1") {
         // Adopt the user's position if they scrolled manually since last frame.
         if (Math.abs(containerEl.scrollLeft - pos) > 1.5) pos = norm(containerEl.scrollLeft);
         pos = norm(pos + step);
@@ -344,6 +477,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initTheme();
   renderFeaturedSpeakers();
+  initFeaturedBios();
   renderPreviousSpeakers();
   renderSchedule();
   fitHeaders();

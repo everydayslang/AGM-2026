@@ -96,7 +96,7 @@ body::before {
 }
 
 .nav-logo-img {
-  height: 32px;
+  height: 40px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1); /* white in hero */
@@ -273,7 +273,7 @@ body.menu-open .mobile-menu {
 }
 .hero-eyebrow {
   font-size: 1.9rem;
-  font-weight: 200;
+  font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: rgba(255,255,255,1);

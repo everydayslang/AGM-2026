@@ -300,6 +300,48 @@ document.addEventListener("DOMContentLoaded", () => {
     update();
   })();
 
+  // Mobile hamburger menu — full-screen blurred overlay
+  (function() {
+    const navbar = document.getElementById("navbar");
+    const hamburger = navbar?.querySelector(".nav-hamburger");
+    const navLinks = navbar?.querySelector(".nav-links");
+    if (!navbar || !hamburger || !navLinks) return;
+
+    // Build the overlay at body level so it escapes the nav's backdrop-filter
+    // containing block and can cover the whole viewport.
+    const overlay = document.createElement("div");
+    overlay.className = "mobile-menu";
+    navLinks.querySelectorAll("a").forEach(a => {
+      if (a.closest("li")?.style.display === "none") return; // respect hidden sections
+      const link = document.createElement("a");
+      link.href = a.getAttribute("href");
+      link.textContent = a.textContent;
+      overlay.appendChild(link);
+    });
+    document.body.appendChild(overlay);
+
+    const setOpen = (open) => {
+      document.body.classList.toggle("menu-open", open);
+      hamburger.textContent = open ? "✕" : "☰";
+      hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+      hamburger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setOpen(!document.body.classList.contains("menu-open"));
+    });
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay || e.target.tagName === "A") setOpen(false);
+    });
+    document.addEventListener("click", (e) => {
+      if (document.body.classList.contains("menu-open") &&
+          !navbar.contains(e.target) && !overlay.contains(e.target)) setOpen(false);
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) setOpen(false);
+    });
+  })();
+
   initTheme();
   renderFeaturedSpeakers();
   renderPreviousSpeakers();

@@ -56,9 +56,19 @@ html { scroll-behavior: smooth; scroll-padding-top: 68px; }
 
 body {
   font-family: var(--font);
-  background: var(--bg);
+  /* Keep the document canvas transparent so Safari doesn't tint its toolbar/
+     status bar with a solid color (the black/white band). The real page
+     background is painted by a fixed layer below. */
+  background: transparent;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
 }
 
 /* ── NAV ── */
@@ -152,6 +162,33 @@ body {
   transition: color 0.25s ease;
 }
 .nav-hamburger:hover { color: rgba(255,255,255,1); }
+
+/* Full-screen hamburger menu overlay (built at body level by scripts.js) */
+.mobile-menu { display: none; }
+body.menu-open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 72px; /* extremely generous spacing between items */
+  position: fixed;
+  inset: 0;
+  z-index: 90; /* below the nav bar (100) so the close button stays tappable */
+  background: var(--sticky-bg); /* keep the translucent opacity level */
+  backdrop-filter: blur(24px);  /* blur everything behind */
+  -webkit-backdrop-filter: blur(24px);
+}
+.mobile-menu a {
+  font-family: var(--font); /* Inter */
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: -0.018em;
+  text-transform: none; /* title case, as authored */
+  text-decoration: none;
+  color: var(--text-body);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--text); }
 
 .theme-toggle {
   position: relative;
@@ -433,7 +470,6 @@ body {
   margin: 0 auto 28px;
   display: block;
   background: #2e2e2e;
-  border: 2px solid var(--border);
   flex-shrink: 0;
 }
 .speaker-card .speaker-name {
@@ -547,7 +583,6 @@ body {
   object-fit: cover;
   flex-shrink: 0;
   background: #2e2e2e;
-  border: 1px solid var(--border);
 }
 
 .prev-speaker-info {
@@ -846,6 +881,7 @@ footer p {
   .nav-hamburger { display: flex; }
   .nav-right { gap: 24px; }
   footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+
 }
 
 /* ── MOBILE: single column ── */

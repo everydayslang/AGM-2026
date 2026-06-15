@@ -36,15 +36,15 @@ const previousSpeakers = [
 ];
 
 const scheduleItems = [
-  { time: "8:30 AM", event: "Doors Open", speakers: "", lpOnly: true },
-  { time: "9:00 – 10:30 AM", event: "645 LP Only Presentation: Strategy and Performance", speakers: "Where we have been investing &amp; where we are going<br/><strong>Moderated by</strong> Aaron Holiday &amp; Nnamdi Okike", lpOnly: true },
+  { time: "8:30 AM", event: "Breakfast &amp; Registration", speakers: "", lpOnly: true },
+  { time: "9:00 – 10:30 AM", event: "645 Strategy and Performance Discussion", speakers: "Where we've been investing, visibility into upcoming liquidity/distributions, organizational growth, and details on the upcoming fundraise for 645 Fund V and Select II. We will dive deep into the portfolio, performance, and the thesis driving the years ahead.", lpOnly: true },
   { time: "10:30 – 10:45 AM", event: "Coffee &amp; Networking", speakers: "" },
-  { time: "10:45 – 11:30 AM", event: "AI Impact on Capital &amp; Financial Markets", speakers: "<strong>Ray McGuire</strong>, President of Lazard<br/>Capital &amp; Financial Markets in a World After AI — what the AI shift means structurally for capital allocation, the institutions that move it, and the cycles ahead.<br/><strong>Moderator:</strong> Aaron Holiday" },
-  { time: "11:30 AM – 12:30 PM", event: "AI Applications and Agents in Fintech", speakers: "<strong>Moderator:</strong> Willy" },
-  { time: "12:30 – 2:00 PM", event: "Lunch", speakers: "" },
-  { time: "2:00 – 2:45 PM", event: "The Future of Work and Society", speakers: "<strong>Andrew Yang</strong><br/>A conversation on AI's impact on employment, regulation, economic mobility, and the institutions that will shape the next decade.<br/><strong>Moderator:</strong> Nnamdi Okike" },
-  { time: "2:45 – 3:30 PM", event: "Glimpse into Necessary Innovations in Compute, Chips, and Energy — Founder Lightning Talks", speakers: "<strong>Natalie Serrino</strong>, Gimlet Labs — AI impact on Compute, Inference, and Energy Consumption<br/><strong>Founder 2</strong>, LiptonQ — What is quantum computing and how it changes the game<br/><strong>Founder 3</strong>, Besxar — Reusable orbital foundries and next-generation semiconductor materials<br/><strong>Moderator:</strong> Vardan Gattani" },
-  { time: "3:30 – 4:15 PM", event: "The Future of Human Value", speakers: "<strong>Albert Wenger</strong><br/>As AI transforms knowledge work, what remains uniquely human — and where will the next generation of opportunity be created?" },
+  { time: "10:45 – 11:30 AM", event: "AI Impact on Capital and Financial Markets", speakers: "A new class of trillion-dollar AI entrants — SpaceX, Anthropic, OpenAI — is reshaping public market dynamics, how capital is allocated, and how assets are priced. What do the IPO and M&amp;A markets do in response, what can past cycles of transformative innovation teach us, and what does it all mean for GDP and growth in the decade ahead?" },
+  { time: "11:30 AM – 12:30 PM", event: "The Application Layer of AI", speakers: "Software is becoming an agent. Where are autonomous systems already rewiring fintech — and what gets rebuilt, automated, or displaced next?" },
+  { time: "12:30 – 2:00 PM", event: "Networking Lunch", speakers: "" },
+  { time: "2:00 – 2:45 PM", event: "Beyond the Model Layer — The Deep Tech Frontier", speakers: "The future for durable returns and market growth sits below and beyond the model layer, specifically in deep tech, defense, and the hard physical frontier the market hasn't caught up to yet. A conversation on where the next decade of value gets built, and why it's harder to copy." },
+  { time: "2:45 – 3:30 PM", event: "Compute, Chips, and Energy Founders: Glimpse into Necessary Innovations", speakers: "Three founders present on the physical frontier powering AI: the compute, energy, and material breakthroughs that have quietly become the constraint on everything built above them." },
+  { time: "3:30 – 4:15 PM", event: "The Future of Human Value: Addressing Economic &amp; Labor Market Changes", speakers: "As AI transforms knowledge work, hard questions move to the center: what happens to the social contract, how is the upside distributed, and do ideas like UBI move from the fringe to the mainstream? A conversation on what remains uniquely human — and on the policy and economic choices that will shape the next decade." },
   { time: "4:15 PM", event: "Closing Remarks", speakers: "" },
 ];
 

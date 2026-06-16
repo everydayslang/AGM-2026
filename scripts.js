@@ -1,11 +1,12 @@
 const featuredSpeakers = [
   // Speakers, ordered last-to-first by agenda appearance...
-  { name: "Andrew Yang", title: "Founder, Forward Party", photo: "images/featured-speakers/Andrew%20Yang.png", bio: "Entrepreneur, 2020 U.S. presidential candidate, and founder of Venture for America and the Forward Party. A leading voice on the future of work, automation, and economic policy." },
-  { name: "Albert Wenger", title: "Managing Partner, Union Square Ventures", photo: "images/featured-speakers/Albert%20Wenger.png", bio: "Managing Partner at Union Square Ventures and author of The World After Capital. He invests in companies whose technology broadens access to knowledge, capital, and opportunity." },
+  // Hidden for now — uncomment to restore in the featured marquee:
+  // { name: "Andrew Yang", title: "Founder, Forward Party", photo: "images/featured-speakers/Andrew%20Yang.png", bio: "Entrepreneur, 2020 U.S. presidential candidate, and founder of Venture for America and the Forward Party. A leading voice on the future of work, automation, and economic policy." },
+  // { name: "Albert Wenger", title: "Managing Partner, Union Square Ventures", photo: "images/featured-speakers/Albert%20Wenger.png", bio: "Managing Partner at Union Square Ventures and author of The World After Capital. He invests in companies whose technology broadens access to knowledge, capital, and opportunity." },
   { name: "Natalie Serrino", title: "Co-Founder, Gimlet Labs", photo: "images/featured-speakers/Natalie%20Serrino.png", bio: "Co-Founder of Gimlet Labs, working on the compute, inference, and energy challenges shaping the next generation of AI infrastructure." },
   { name: "Josh Wolfe", title: "Co-Founder & Managing Partner, Lux Capital", photo: "images/featured-speakers/Josh%20Wolfe.png", bio: "Co-Founder and Managing Partner of Lux Capital, where he backs scientists and engineers building companies at the frontier of deep tech, defense, and the physical sciences." },
   { name: "Luca Cartechini", title: "Co-Founder & CEO, Circeus", photo: "images/featured-speakers/Luca%20Cartechini.png", bio: "Luca Cartechini is the Co-Founder and CEO of Circeus, an AI-native holding for mission-critical software. Circeus has completed 20+ acquisitions, raised $250M from global investors, and serves 200,000+ businesses worldwide.\n\nCirceus acquires and evolves the software that runs the physical world. A centralised AI team rebuilds these products around frontier models, embedding intelligence and deploying agentic workflows that expand TAM and improve margins, bringing the capabilities of AI to everyday businesses.\n\nEarlier, Luca worked in Research at Jefferies covering European technology and in Venture Capital backing high-growth B2B software, and served as an Adjunct Professor of Entrepreneurship and Corporate Finance at ESCP Business School for 5 years." },
-  { name: "Ray McGuire", title: "President, Lazard", photo: "images/featured-speakers/Ray%20Mcguire.png", bio: "Raymond J. McGuire is the President and Co-Head of Financial Advisory in North America at Lazard. As a member of Lazard's senior leadership team, he strengthens key stakeholder relationships, counsels on complex transactions, and drives the firm's domestic and international growth. In November 2025, he joined the Board of Directors of Harvard Management Company, which oversees Harvard University's endowment and related assets.\n\nPrior to Lazard, Mr. McGuire spent 13 years as Citigroup's Global Head of Corporate and Investment Banking, leading a $20 billion+ global business and holding the longest tenure in that role in Wall Street history. He later served as Citigroup Vice Chairman and Chairman of its Banking, Capital Markets, and Advisory business. His earlier career included being the Co-Global Head of Mergers & Acquisitions at Morgan Stanley and senior roles at Merrill Lynch and was one of the early Partners at Wasserstein Perella. He began his career in the Mergers & Acquisitions Group at The First Boston Corporation. He has advised on transactions exceeding $800 billion, across global industries and geographies.\n\nMr. McGuire serves on the board of Vornado Realty Trust and has held prior corporate directorships at Hess Corporation and KKR & Co. In 2026, he was appointed to the inaugural Board of Advisors of Black Entertainment Television (BET). Mr. McGuire also holds leadership positions on several nonprofit boards, including the Harvard Management Company, the American Museum of Natural History (Treasurer), the Black Trustee Alliance for Art Museums (Co-Chair), the Hotchkiss School (Vice President), the New York Public Library (Chair Executive-Committee), the Regional Plan Association (Chairman), the Trinity School and the Whitney Museum of American Art. As the 22-year Chairman of the Board of the Studio Museum in Harlem, he led a transformative $300 million capital campaign culminating in its historic November 2025 reopening in its critically acclaimed new building on 125th Street in Harlem, NY.\n\nMr. McGuire earned his M.B.A. and J.D. from Harvard Business School and Harvard Law School, and his A.B. from Harvard College. He is a graduate of the Hotchkiss School." },
+  { name: "Raymond J. McGuire", title: "President, Lazard", photo: "images/featured-speakers/Ray%20Mcguire.png", bio: "Raymond J. McGuire is the President and Co-Head of Financial Advisory in North America at Lazard. As a member of Lazard's senior leadership team, he strengthens key stakeholder relationships, counsels on complex transactions, and drives the firm's domestic and international growth. In November 2025, he joined the Board of Directors of Harvard Management Company, which oversees Harvard University's endowment and related assets.\n\nPrior to Lazard, Mr. McGuire spent 13 years as Citigroup's Global Head of Corporate and Investment Banking, leading a $20 billion+ global business and holding the longest tenure in that role in Wall Street history. He later served as Citigroup Vice Chairman and Chairman of its Banking, Capital Markets, and Advisory business. His earlier career included being the Co-Global Head of Mergers & Acquisitions at Morgan Stanley and senior roles at Merrill Lynch and was one of the early Partners at Wasserstein Perella. He began his career in the Mergers & Acquisitions Group at The First Boston Corporation. He has advised on transactions exceeding $800 billion, across global industries and geographies.\n\nMr. McGuire serves on the board of Vornado Realty Trust and has held prior corporate directorships at Hess Corporation and KKR & Co. In 2026, he was appointed to the inaugural Board of Advisors of Black Entertainment Television (BET). Mr. McGuire also holds leadership positions on several nonprofit boards, including the Harvard Management Company, the American Museum of Natural History (Treasurer), the Black Trustee Alliance for Art Museums (Co-Chair), the Hotchkiss School (Vice President), the New York Public Library (Chair Executive-Committee), the Regional Plan Association (Chairman), the Trinity School and the Whitney Museum of American Art. As the 22-year Chairman of the Board of the Studio Museum in Harlem, he led a transformative $300 million capital campaign culminating in its historic November 2025 reopening in its critically acclaimed new building on 125th Street in Harlem, NY.\n\nMr. McGuire earned his M.B.A. and J.D. from Harvard Business School and Harvard Law School, and his A.B. from Harvard College. He is a graduate of the Hotchkiss School." },
   // ...then moderators in alphabetical order.
   { name: "Aaron Holiday", title: "Co-Founder & Managing Partner, 645 Ventures", photo: "images/645-team/Aaron%20Holiday.png", bio: "Co-Founder and Managing Partner of 645 Ventures, investing across the application and infrastructure layers of AI and backing exceptional founders from seed through growth." },
   { name: "Nnamdi Okike", title: "Co-Founder & Managing Partner, 645 Ventures", photo: "images/645-team/Nnamdi%20Okike.png", bio: "Co-Founder and Managing Partner of 645 Ventures, focused on backing exceptional founders building category-defining technology companies from seed through growth." },
@@ -41,7 +42,7 @@ const scheduleItems = [
   ] },
   { time: "10:30 – 10:45 AM", event: "Coffee &amp; Networking", speakers: "" },
   { time: "10:45 – 11:30 AM", event: "AI Impact on Capital and Financial Markets", speakers: "A new class of trillion-dollar AI entrants — SpaceX, Anthropic, OpenAI — is reshaping public market dynamics, how capital is allocated, and how assets are priced. What do the IPO and M&amp;A markets do in response, what can past cycles of transformative innovation teach us, and what does it all mean for GDP and growth in the decade ahead?", people: [
-    { name: "Ray McGuire", role: "Speaker", photo: "images/featured-speakers/Ray%20Mcguire.png" },
+    { name: "Raymond J. McGuire", role: "Speaker", photo: "images/featured-speakers/Ray%20Mcguire.png" },
     { name: "Aaron Holiday", role: "Moderator", photo: "images/645-team/Aaron%20Holiday.png" },
   ] },
   { time: "11:30 AM – 12:30 PM", event: "The Application Layer of AI", speakers: "Software is becoming an agent. Where are autonomous systems already rewiring fintech — and what gets rebuilt, automated, or displaced next?" },
@@ -53,8 +54,9 @@ const scheduleItems = [
     { name: "Natalie Serrino", role: "Speaker", photo: "images/featured-speakers/Natalie%20Serrino.png" },
   ] },
   { time: "3:30 – 4:15 PM", event: "The Future of Human Value: Addressing Economic &amp; Labor Market Changes", speakers: "As AI transforms knowledge work, hard questions move to the center: what happens to the social contract, how is the upside distributed, and do ideas like UBI move from the fringe to the mainstream? A conversation on what remains uniquely human — and on the policy and economic choices that will shape the next decade.", people: [
-    { name: "Albert Wenger", role: "Speaker", photo: "images/featured-speakers/Albert%20Wenger.png" },
-    { name: "Andrew Yang", role: "Speaker", photo: "images/featured-speakers/Andrew%20Yang.png" },
+    // Hidden for now — uncomment to restore:
+    // { name: "Albert Wenger", role: "Speaker", photo: "images/featured-speakers/Albert%20Wenger.png" },
+    // { name: "Andrew Yang", role: "Speaker", photo: "images/featured-speakers/Andrew%20Yang.png" },
     { name: "Nnamdi Okike", role: "Moderator", photo: "images/645-team/Nnamdi%20Okike.png" },
   ] },
   { time: "4:15 PM", event: "Closing Remarks", speakers: "" },
@@ -246,6 +248,47 @@ function renderSchedule() {
       <div class="schedule-speakers">${item.speakers}${peopleHtml}</div>
     </div>`;
   }).join("");
+}
+
+// Clicking an agenda avatar jumps up to the Featured Speakers section and
+// scrolls the marquee to that person (only if they have a featured card).
+function initScheduleToFeatured() {
+  const list = document.getElementById("schedule-list");
+  const sticky = document.getElementById("speakers-h-sticky");
+  const grid = document.getElementById("featured-speakers-grid");
+  const speakers = document.getElementById("speakers");
+  if (!list || !speakers) return;
+
+  list.addEventListener("click", (e) => {
+    const person = e.target.closest(".schedule-person");
+    if (!person) return;
+    const name = person.querySelector(".schedule-person-name")?.textContent.trim();
+    if (!name) return;
+
+    // Only act when this person actually appears in the featured marquee.
+    const cards = grid
+      ? [...grid.querySelectorAll(".speaker-card")].filter(c =>
+          c.querySelector(".speaker-name")?.textContent.trim() === name)
+      : [];
+    if (!cards.length) return;
+
+    speakers.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (sticky) {
+      sticky.dataset.locked = "1"; // pause the auto-scroll while we reposition
+      const sRect = sticky.getBoundingClientRect();
+      // Center the nearest instance of this person's card (clones included),
+      // measured live so it's correct regardless of the card's offsetParent.
+      let bestTarget = sticky.scrollLeft, bestAbs = Infinity;
+      cards.forEach(card => {
+        const r = card.getBoundingClientRect();
+        const delta = (r.left - sRect.left) - (sRect.width - r.width) / 2;
+        if (Math.abs(delta) < bestAbs) { bestAbs = Math.abs(delta); bestTarget = sticky.scrollLeft + delta; }
+      });
+      sticky.scrollTo({ left: Math.max(0, bestTarget), behavior: "smooth" });
+      setTimeout(() => { delete sticky.dataset.locked; }, 1500);
+    }
+  });
 }
 
 function makeMarquee(containerEl, trackEl, direction, speed) {
@@ -480,6 +523,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFeaturedBios();
   renderPreviousSpeakers();
   renderSchedule();
+  initScheduleToFeatured();
   fitHeaders();
 
   makeMarquee(

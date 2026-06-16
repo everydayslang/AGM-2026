@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=41" />
+  <link rel="stylesheet" href="styles.css?v=51" />
   <script>
     (function() {
       var saved = localStorage.getItem('theme') || 'system';
@@ -72,11 +72,13 @@
 
   <!-- FEATURED SPEAKERS -->
   <section id="speakers">
+    <!-- Header is a direct child of #speakers so it stays sticky through both
+         the featured marquee and the Previous Notable Speakers section. -->
+    <div class="speakers-h-header">
+      <p class="section-label speakers-label">This year's</p>
+      <h2 class="featured-section-title fit-width">Featured Speakers</h2>
+    </div>
     <div class="speakers-h-outer" id="speakers-h-outer">
-      <div class="speakers-h-header">
-        <p class="section-label speakers-label">Speakers</p>
-        <h2 class="featured-section-title fit-width">Featured this year</h2>
-      </div>
       <div class="speakers-h-sticky" id="speakers-h-sticky">
         <div class="speakers-grid" id="featured-speakers-grid"></div>
       </div>
@@ -84,7 +86,7 @@
 
     <!-- PREVIOUS NOTABLE SPEAKERS -->
     <div class="previous-speakers-wrapper">
-      <p class="section-label previous-label">Speakers from years past</p>
+      <p class="section-label previous-label">Previous Notable Speakers</p>
       <div class="prev-scroll-outer">
         <div class="previous-speakers-scroll" id="previous-speakers-scroll"></div>
       </div>
@@ -94,8 +96,8 @@
   <!-- SCHEDULE -->
   <section id="schedule">
     <div class="schedule-header">
-      <p class="section-label">September 24, 2026</p>
-      <h2 class="schedule-heading fit-width">The Meeting's Agenda</h2>
+      <p class="section-label">Thursday September 24, 2026</p>
+      <h2 class="schedule-heading fit-width">Event Schedule</h2>
     </div>
     <div class="schedule-list" id="schedule-list"></div>
   </section>
@@ -108,7 +110,7 @@
         <h2 class="location-title fit-width">Peak at Hudson Yards</h2>
       </div>
       <div class="location-body">
-        <div class="location-text">
+        <div class="location-col">
           <div class="location-address-block">
             <a href="https://maps.google.com/?q=30+Hudson+Yards,+New+York,+NY+10001" target="_blank" class="location-map-link">
               <img src="images/location-icon.svg" class="location-icon-default" alt="Map" />
@@ -120,6 +122,8 @@
             </div>
           </div>
           <p>In the heart of Hudson Yards, Peak is a special venue set above the clouds on the 101st floor of 30 Hudson Yards. Peak brings stunning views of New York City, positioned at the summit of the 1,296-foot tall tower. Peak sits one level above Edge, the highest observation deck in the Western Hemisphere.</p>
+        </div>
+        <div class="location-col">
           <p><strong>Instructions for Entry to Peak at Hudson Yards</strong></p>
           <ol class="location-steps">
             <li>Please use the entrance at the Shops at Hudson Yards across from the Vessel.</li>
@@ -139,6 +143,6 @@
   </footer>
 
   <script>window.SITE_CONFIG = { hideSections: [] };</script>
-  <script src="scripts.js?v=38"></script>
+  <script src="scripts.js?v=42"></script>
 </body>
 </html>

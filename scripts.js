@@ -30,7 +30,6 @@ const previousSpeakers = [
   { name: "Kathy Wylde", title: "President & CEO, Partnership for New York City", photo: "images/previous-speakers/Kathy%20Wylde.png" },
   { name: "Tarek Sherif", title: "CEO & Co-Founder, Medidata", photo: "images/previous-speakers/Tarek%20Sherif.png" },
   { name: "J. Christopher Giancarlo", title: "Former Chairman, US Commodity Futures Trading Commission", photo: "images/previous-speakers/Chris%20Giancarlo.png" },
-  { name: "Ran Reske", title: "Co-Founder & President, Inner Balance; Former Co-Founder & CEO, Resident ($1 billion acq. by Ashley Furniture)", photo: "images/previous-speakers/Ran%20Reske.png" },
 ];
 
 const scheduleItems = [

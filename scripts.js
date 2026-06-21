@@ -55,7 +55,7 @@ const scheduleItems = [
   { time: "2:45 – 3:30 PM", event: "Compute, Chips, and Energy Founders: A Glimpse into Necessary Innovations", speakers: "Three founders present on the physical frontier powering AI: the compute, energy, and material breakthroughs that have quietly become the constraint on everything built above them.", people: [
     { name: "Natalie Serrino", role: "Speaker", photo: "images/featured-speakers/Natalie%20Serrino.png" },
   ] },
-  { time: "3:30 – 4:15 PM", event: "The Future of Human Value: Addressing Economic &amp; Labor Market Changes", speakers: "As AI transforms knowledge work, hard questions move to the center: what happens to the social contract, how is the upside distributed, and do ideas like UBI move from the fringe to the mainstream? A conversation on what remains uniquely human — and on the policy and economic choices that will shape the next decade.", people: [
+  { time: "3:30 – 4:15 PM", event: "The Future of Human Value: Addressing Economic, Environmental &amp; Labor Market Changes", speakers: "As AI transforms knowledge work, hard questions move to the center: what happens to the social contract, how is the upside distributed, and do ideas like UBI move from the fringe to the mainstream? A conversation on what remains uniquely human — and on the policy and economic choices that will shape the next decade.", people: [
     // Hidden for now — uncomment to restore:
     // { name: "Albert Wenger", role: "Speaker", photo: "images/featured-speakers/Albert%20Wenger.png" },
     // { name: "Andrew Yang", role: "Speaker", photo: "images/featured-speakers/Andrew%20Yang.png" },

@@ -42,8 +42,8 @@ const scheduleItems = [
     { name: "Nnamdi Okike", role: "Moderator", photo: "images/645-team/Nnamdi%20Okike.png" },
   ] },
   { time: "10:30 – 10:45 AM", event: "Coffee &amp; Networking", speakers: "" },
-  { time: "10:45 – 11:30 AM", event: "AI Impact on Capital and Financial Markets", speakers: "A new class of trillion-dollar AI entrants — SpaceX, Anthropic, OpenAI — is reshaping public market dynamics, how capital is allocated, and how assets are priced. What do the IPO and M&amp;A markets do in response, what can past cycles of transformative innovation teach us, and what does it all mean for GDP and growth in the decade ahead?", people: [
-    { name: "Raymond J. McGuire", role: "Speaker", photo: "images/featured-speakers/Ray%20Mcguire.png" },
+  { time: "10:45 – 11:30 AM", event: "Beyond the Model Layer — The Deep Tech Frontier", speakers: "The future for durable returns and market growth sits below and beyond the model layer, specifically in deep tech, defense, and the hard physical frontier the market hasn't caught up to yet. A conversation on where the next decade of value gets built, and why it's harder to copy.", people: [
+    { name: "Josh Wolfe", role: "Speaker", photo: "images/featured-speakers/Josh%20Wolfe.png" },
     { name: "Aaron Holiday", role: "Moderator", photo: "images/645-team/Aaron%20Holiday.png" },
   ] },
   { time: "11:30 – 12:30 PM", event: "The Application Layer of AI", speakers: "Software is becoming an agent. Where are autonomous systems already rewiring fintech — and what gets rebuilt, automated, or displaced next?", people: [
@@ -53,8 +53,8 @@ const scheduleItems = [
     { name: "Nnamdi Okike", role: "Moderator", photo: "images/645-team/Nnamdi%20Okike.png" },
   ] },
   { time: "12:30 – 2:00 PM", event: "Networking Lunch", speakers: "" },
-  { time: "2:00 – 2:45 PM", event: "Beyond the Model Layer — The Deep Tech Frontier", speakers: "The future for durable returns and market growth sits below and beyond the model layer, specifically in deep tech, defense, and the hard physical frontier the market hasn't caught up to yet. A conversation on where the next decade of value gets built, and why it's harder to copy.", people: [
-    { name: "Josh Wolfe", role: "Speaker", photo: "images/featured-speakers/Josh%20Wolfe.png" },
+  { time: "2:00 – 2:45 PM", event: "AI Impact on Capital and Financial Markets", speakers: "A new class of trillion-dollar AI entrants — SpaceX, Anthropic, OpenAI — is reshaping public market dynamics, how capital is allocated, and how assets are priced. What do the IPO and M&amp;A markets do in response, what can past cycles of transformative innovation teach us, and what does it all mean for GDP and growth in the decade ahead?", people: [
+    { name: "Raymond J. McGuire", role: "Speaker", photo: "images/featured-speakers/Ray%20Mcguire.png" },
     { name: "Aaron Holiday", role: "Moderator", photo: "images/645-team/Aaron%20Holiday.png" },
   ] },
   { time: "2:45 – 3:30 PM", event: "Compute, Chips, and Energy Founders: A Glimpse into Necessary Innovations", speakers: "Three founders present on the physical frontier powering AI: the compute, energy, and material breakthroughs that have quietly become the constraint on everything built above them.", people: [

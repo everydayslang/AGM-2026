@@ -96,7 +96,7 @@ function renderFeaturedSpeakers() {
       ${s.photo
         ? `<img src="${s.photo}" alt="${s.name}" />`
         : `<div class="speaker-photo-placeholder"></div>`}
-      <div class="speaker-name">${s.name.replace(/ & /g, " &<br>")}</div>
+      <div class="speaker-name">${s.name.replace(/ & /g, " & <br>")}</div>
       <div class="speaker-title">
         <span class="speaker-title-role">${role}</span>
         ${company ? `<span class="speaker-title-company">${company}</span>` : ``}

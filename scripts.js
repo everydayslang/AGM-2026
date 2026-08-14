@@ -59,7 +59,7 @@ const scheduleItems = [
     { name: "Raymond J. McGuire", role: "Speaker", photo: "images/featured-speakers/Ray%20Mcguire.png" },
     { name: "Aaron Holiday", role: "Moderator", photo: "images/645-team/Aaron%20Holiday.png" },
   ] },
-  { time: "2:45 – 3:15 PM", event: "Compute, Chips, and Energy Founders: A Glimpse into Necessary Innovations", speakers: "Three founders present on the physical frontier powering AI: the compute, energy, and material breakthroughs that have quietly become the constraint on everything built above them.", people: [
+  { time: "2:45 – 3:15 PM", event: "Compute, Chips, and Energy Founders: A Glimpse into Necessary Innovations", speakers: "Founders present on the physical frontier powering AI: the compute, energy, and material breakthroughs that have quietly become the constraint on everything built above them.", people: [
     { name: "Natalie Serrino", role: "Speaker", photo: "images/featured-speakers/Natalie%20Serrino.png" },
     { name: "Spencer Fallek", role: "Speaker", photo: "images/featured-speakers/Spencer%20Fallek.png" },
   ] },

@@ -63,7 +63,7 @@ const scheduleItems = [
     { name: "Natalie Serrino", role: "Speaker", photo: "images/featured-speakers/Natalie%20Serrino.png" },
     { name: "Spencer Fallek", role: "Speaker", photo: "images/featured-speakers/Spencer%20Fallek.png" },
   ] },
-  { time: "3:15 – 3:45 PM", event: "Building the Post-Abundance Economy", speakers: "", people: [
+  { time: "3:15 – 3:45 PM", event: "Building the Post-Abundance Economy", speakers: "As automation drives many costs toward zero, the binding constraint stops being capital and becomes purpose, attention, and what people choose to do with their time. What does a thriving society look like on the other side of that shift, and what does it ask of the people allocating capital right now? Join us for a conversation on the philosophy behind post-abundance.", people: [
     { name: "Albert Wenger & Gigi Danziger", role: "Speakers", photo: "images/featured-speakers/Albert%20Wenger%20and%20Gigi%20Danziger.png" },
     { name: "Parul Singh", role: "Moderator", photo: "images/featured-speakers/Parul%20Singh.png" },
   ] },
